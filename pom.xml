@@ -14,7 +14,7 @@
 	<name>student_management_portal</name>
 	<description>Student management portal is an app to keep track of students in this aspect ranging from performances to attendence and active participations with course work</description>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
