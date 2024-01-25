@@ -1,4 +1,4 @@
-package com.example.student_management_portal.controller;
+package com.example.student_management_portal.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping(value = "/Portal")
+@RequestMapping(value = "")
 public class authenticationController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ModelAndView getLandingPage(){
@@ -20,5 +20,12 @@ public class authenticationController {
         ModelAndView signupPage = new ModelAndView();
         signupPage.setViewName("/portal/signup");
         return signupPage;
+    }
+
+    @RequestMapping(value = "/signin", method = RequestMethod.GET)
+    public ModelAndView getSigninPage(){
+        ModelAndView signinPage = new ModelAndView();
+        signinPage.setViewName("/portal/signin");
+        return signinPage;
     }
 }
