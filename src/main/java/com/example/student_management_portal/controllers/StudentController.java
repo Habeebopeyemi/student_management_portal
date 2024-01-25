@@ -62,7 +62,7 @@ public class StudentController {
         Student student = studentService.getStudent(id);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/editStudent");
+        modelAndView.setViewName("portal/editStudent");
         modelAndView.addObject("student", student);
         modelAndView.addObject("message", "Update successful");
         return modelAndView;
@@ -76,7 +76,7 @@ public class StudentController {
 
         redirectAttributes.addFlashAttribute("message", "Update successful");
 
-        return new ModelAndView("redirect:/student/list");
+        return new ModelAndView("redirect:/student/allStudents");
     }
 
     @RequestMapping(value = "/confirmDelete/{id}", method = RequestMethod.GET)
@@ -84,7 +84,7 @@ public class StudentController {
         Student student = studentService.getStudent(id);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/confirmDelete");
+        modelAndView.setViewName("portal/confirmDelete");
         modelAndView.addObject("student", student);
         return modelAndView;
     }
@@ -101,7 +101,7 @@ public class StudentController {
     {
         Student student = studentService.getStudent(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/viewStudent");
+        modelAndView.setViewName("portal/viewStudent");
         modelAndView.addObject("student", student);
         return modelAndView;
     }
