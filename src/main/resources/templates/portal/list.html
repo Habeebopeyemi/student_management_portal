@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,7 +46,6 @@
         }
     </style>
 </head>
-
 <body>
 <main style="">
     <header id="The-head-space" class="d-flex justify-content-between align-items-center pt-1 py-0 px-3 shadow-sm mb-3 bg-white">
@@ -59,7 +57,6 @@
         </div>
     </header>
     <div class="container">
-
         <div th:if="${message}" class="alert alert-success" style="max-width: 500px;margin: 0 auto;" th:text="${message}"></div>
         <div class="d-flex justify-content-end mb-3">
             <a th:href="@{/student/createStudent}" class="btn btn-primary add-new-btn">+ Add New Student</a>
@@ -74,7 +71,6 @@
                     <th>Track</th>
                     <th>Action</th>
                 </tr>
-
                 <tr th:each="student : ${students}">
                     <td th:text="${student.id}">ID</td>
                     <td th:text="${student.name}">Name</td>
@@ -93,5 +89,4 @@
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
-
 </html>
