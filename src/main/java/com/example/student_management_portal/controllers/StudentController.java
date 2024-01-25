@@ -22,7 +22,9 @@ public class StudentController {
     @RequestMapping(value = {"/", ""})
     public ModelAndView Index()
     {
-        return null;
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/portal/index");
+        return modelAndView;
     }
 
     @RequestMapping(value = {"/create", "/Create"})
@@ -63,7 +65,7 @@ public class StudentController {
         Student student = studentService.getStudent(id);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/editStudent");
+        modelAndView.setViewName("portal/edit");
         modelAndView.addObject("student", student);
         modelAndView.addObject("message", "Update successful");
         return modelAndView;
@@ -85,7 +87,7 @@ public class StudentController {
         Student student = studentService.getStudent(id);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/confirmDelete");
+        modelAndView.setViewName("portal/confirmDelete");
         modelAndView.addObject("student", student);
         return modelAndView;
     }
@@ -102,7 +104,7 @@ public class StudentController {
     {
         Student student = studentService.getStudent(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/viewStudent");
+        modelAndView.setViewName("portal/view");
         modelAndView.addObject("student", student);
         return modelAndView;
     }
