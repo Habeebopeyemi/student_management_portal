@@ -15,17 +15,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = {"/student", "/Student"})
+@RequestMapping(value = "/student")
 public class StudentController {
     @Autowired
     private StudentServiceImplementation studentService;
-    @RequestMapping(value = {"/", ""})
-    public ModelAndView Index()
-    {
-        return null;
+
+    public StudentController(StudentServiceImplementation studentService){
+        this.studentService = studentService;
     }
 
-    @RequestMapping(value = {"/create", "/Create"})
+    @RequestMapping(value = "/createStudent")
     public ModelAndView CreateStudent()
     {
         ModelAndView modelAndView = new ModelAndView();
@@ -33,7 +32,7 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/register")
+    @RequestMapping(value = "/registerStudent")
     public ModelAndView RegisterStudent(@RequestParam(value = "student_name") String name,
                                         @RequestParam(value = "student_gender") String gender,
                                         @RequestParam(value = "student_email") String email,
@@ -46,7 +45,7 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/list")
+    @RequestMapping(value = "/allStudents")
     public ModelAndView ListStudents() {
         ModelAndView modelAndView = new ModelAndView();
 
@@ -57,19 +56,19 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/editStudent/{id}", method = RequestMethod.GET)
     public ModelAndView EditStudent(@PathVariable(value = "id") long id)
     {
         Student student = studentService.getStudent(id);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/editStudent");
+        modelAndView.setViewName("portal/editStudent");
         modelAndView.addObject("student", student);
         modelAndView.addObject("message", "Update successful");
         return modelAndView;
     }
 
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateStudent/{id}", method = RequestMethod.POST)
     public ModelAndView UpdateStudent(Student student, @PathVariable(value = "id") long id, RedirectAttributes redirectAttributes)
     {
         student.setId(id);
@@ -77,7 +76,7 @@ public class StudentController {
 
         redirectAttributes.addFlashAttribute("message", "Update successful");
 
-        return new ModelAndView("redirect:/student/list");
+        return new ModelAndView("redirect:/student/allStudents");
     }
 
     @RequestMapping(value = "/confirmDelete/{id}", method = RequestMethod.GET)
@@ -85,7 +84,7 @@ public class StudentController {
         Student student = studentService.getStudent(id);
 
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/confirmDelete");
+        modelAndView.setViewName("portal/confirmDelete");
         modelAndView.addObject("student", student);
         return modelAndView;
     }
@@ -97,12 +96,12 @@ public class StudentController {
         return new ModelAndView("redirect:/student/list");
     }
 
-    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/viewStudent/{id}", method = RequestMethod.GET)
     public ModelAndView View(@PathVariable(value = "id") long id)
     {
         Student student = studentService.getStudent(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("student/viewStudent");
+        modelAndView.setViewName("portal/viewStudent");
         modelAndView.addObject("student", student);
         return modelAndView;
     }
