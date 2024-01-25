@@ -29,7 +29,7 @@ public class StudentController {
     public ModelAndView CreateStudent()
     {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("/student/createStudent");
+        modelAndView.setViewName("/portal/createStudent");
         return modelAndView;
     }
 
@@ -42,7 +42,7 @@ public class StudentController {
         studentService.createNewStudent(name, gender, email, track);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("name", name);
-        modelAndView.setViewName("/student/registerStudent");
+        modelAndView.setViewName("/portal/registerStudent");
         return modelAndView;
     }
 
@@ -52,7 +52,7 @@ public class StudentController {
 
         List<Student> studentList = studentService.getAllStudents();
 
-        modelAndView.setViewName("student/listStudents");
+        modelAndView.setViewName("portal/list");
         modelAndView.addObject("students", studentList);
         return modelAndView;
     }
