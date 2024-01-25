@@ -15,7 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = {"/student", "/Student"})
+@RequestMapping(value = "/student")
 public class StudentController {
     @Autowired
     private StudentServiceImplementation studentService;
