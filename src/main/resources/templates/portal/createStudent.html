@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<body>
+<form th:action="@{/student/register}" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" th:name="student_name" id="name" />
+    </div>
+    <div>
+        <label for="gender">Select Gender:</label>
+        <select th:name="student_gender" id="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" th:name="student_email" id="email" />
+    </div>
+    <div>
+        <label for="track">Select Track:</label>
+        <select th:name="student_track" id="track" required>
+            <option value="Cybersecurity">Cybersecurity</option>
+            <option value="Data Analysis">Data Analysis</option>
+            <option value="Infrastructure">Infrastructure</option>
+            <option value="Software Engineering">Software Engineering</option>
+        </select>
+    </div>
+    <input type="submit" value="Create Student">
+</form>
+</body>
+</html>

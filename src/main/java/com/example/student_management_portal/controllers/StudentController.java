@@ -19,13 +19,12 @@ import java.util.List;
 public class StudentController {
     @Autowired
     private StudentServiceImplementation studentService;
-    @RequestMapping(value = {"/", ""})
-    public ModelAndView Index()
-    {
-        return null;
+
+    public StudentController(StudentServiceImplementation studentService){
+        this.studentService = studentService;
     }
 
-    @RequestMapping(value = {"/create", "/Create"})
+    @RequestMapping(value = "/createStudent")
     public ModelAndView CreateStudent()
     {
         ModelAndView modelAndView = new ModelAndView();
@@ -33,7 +32,7 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/register")
+    @RequestMapping(value = "/registerStudent")
     public ModelAndView RegisterStudent(@RequestParam(value = "student_name") String name,
                                         @RequestParam(value = "student_gender") String gender,
                                         @RequestParam(value = "student_email") String email,
@@ -46,7 +45,7 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/list")
+    @RequestMapping(value = "/allStudents")
     public ModelAndView ListStudents() {
         ModelAndView modelAndView = new ModelAndView();
 
@@ -57,7 +56,7 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/editStudent/{id}", method = RequestMethod.GET)
     public ModelAndView EditStudent(@PathVariable(value = "id") long id)
     {
         Student student = studentService.getStudent(id);
@@ -69,7 +68,7 @@ public class StudentController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/updateStudent/{id}", method = RequestMethod.POST)
     public ModelAndView UpdateStudent(Student student, @PathVariable(value = "id") long id, RedirectAttributes redirectAttributes)
     {
         student.setId(id);
@@ -97,7 +96,7 @@ public class StudentController {
         return new ModelAndView("redirect:/student/list");
     }
 
-    @RequestMapping(value = "/view/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/viewStudent/{id}", method = RequestMethod.GET)
     public ModelAndView View(@PathVariable(value = "id") long id)
     {
         Student student = studentService.getStudent(id);

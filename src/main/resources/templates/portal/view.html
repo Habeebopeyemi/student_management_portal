@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>View Student</title>
+</head>
+<body>
+<div class="container">
+  <h1><span th:text="${student.name}"></span>'s Information Header</h1>
+</div>
+<div>
+  <div th:if="${student.gender eq 'Male'}">
+    <img src="/student/male_avatar.jpg" alt="Male Avatar" width="100" height="100">
+  </div>
+  <div th:if="${student.gender eq 'Female'}">
+    <img src="/student/female_avatar.png" alt="Female Avatar" width="100" height="100">
+  </div>
+  <div>
+    ID: <span th:text="${student.id}"></span>
+  </div>
+  <div>
+    Name: <span th:text="${student.name}"></span>
+  </div>
+  <div>
+    Email: <span th:text="${student.email}"></span>
+  </div>
+  <div>
+    <a th:href="@{/student/list}"><button>Go back</button></a>
+  </div>
+</div>
+</body>
+</html>
