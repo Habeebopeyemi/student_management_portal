@@ -11,16 +11,16 @@
       <div class="w-50 mx-auto">
         <img src="/images/flogo.png" alt="logo" class=""/>
       </div>
-      <form action="" class="w-75 mx-auto mb-5">
+      <form th:action="@{/register}" method="post" class="w-75 mx-auto mb-5">
         <p class="my-3" style="color:#022D63; font-weight:bold;">Sign Up</p>
         <div>
-          <input type="email"  class="form-control mb-4" placeholder="Your email">
+          <input type="email" name="email" class="form-control mb-4" placeholder="Your email">
         </div>
         <div>
-          <input type="password"  class="form-control mb-4" placeholder="Enter password">
+          <input type="password" name="password" minlength="5" class="form-control mb-4" placeholder="Enter password">
         </div>
         <div>
-          <input type="password"  class="form-control mb-4" placeholder="Repeat password">
+          <input type="password" name="repeatPassword" minlength="5" class="form-control mb-4" placeholder="Repeat password">
         </div>
         <button class="text-white p-2 rounded-3 shadow-sm" style="width:100%; border:none; background-color:#022D63">Sign up</button>
       </form>

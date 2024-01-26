@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
   <meta charset="UTF-8">
   <title th:text="${student.name}"></title>
@@ -24,7 +23,7 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       text-align: left;
-      max-width: 400px; /* Adjust the maximum width as needed */
+      max-width: 400px;
       width: 100%;
     }
 
@@ -39,18 +38,18 @@
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      margin: 0 auto; /* Center the image horizontally */
-      display: block; /* Ensure the margin works as expected */
+      margin: 0 auto;
+      display: block;
       margin-bottom: 20px;
     }
 
     div {
-      margin-bottom: 10px; /* 10px margin between details */
+      margin-bottom: 10px;
       color: #002E62;
     }
 
     .track {
-      margin-bottom: 20px; /* Increase space between Track and Go back button */
+      margin-bottom: 20px;
     }
 
     button {
@@ -69,7 +68,6 @@
     }
   </style>
 </head>
-
 <body>
 <div class="container">
   <h2><span th:text="${student.name}"></span>'s Information</h2>
@@ -92,5 +90,4 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
 </body>
-
 </html>
