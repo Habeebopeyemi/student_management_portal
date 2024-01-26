@@ -37,10 +37,18 @@ public class AuthenticationController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public ModelAndView registerNewUser(@RequestParam(value = "email") String email, @RequestParam(value = "password") String password, @RequestParam(value = "repeatPassword") String repeatPassword){
-        ModelAndView loginView = new ModelAndView();
-        authService.createAdmin(email, password);
-        loginView.setViewName("portal/signin");
-        return loginView;
+        ModelAndView resultView = new ModelAndView();
+        boolean isMatched = password.equals(repeatPassword);
+        if(isMatched) {
+            authService.createAdmin(email, password);
+            resultView.setViewName("portal/signin");
+            return resultView;
+        }else{
+            resultView.setViewName("portal/signup");
+            resultView.addObject("error",true);
+            resultView.addObject("message","password does not match");
+            return resultView;
+        }
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
