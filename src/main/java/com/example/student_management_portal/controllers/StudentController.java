@@ -24,6 +24,17 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    @RequestMapping(value = "")
+    public ModelAndView Index() {
+        ModelAndView modelAndView = new ModelAndView();
+
+        List<Student> studentList = studentService.getAllStudents();
+
+        modelAndView.setViewName("portal/list");
+        modelAndView.addObject("students", studentList);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/createStudent")
     public ModelAndView CreateStudent()
     {
