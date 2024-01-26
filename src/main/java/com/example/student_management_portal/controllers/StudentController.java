@@ -24,6 +24,17 @@ public class StudentController {
         this.studentService = studentService;
     }
 
+    @RequestMapping(value = "")
+    public ModelAndView Index() {
+        ModelAndView modelAndView = new ModelAndView();
+
+        List<Student> studentList = studentService.getAllStudents();
+
+        modelAndView.setViewName("portal/list");
+        modelAndView.addObject("students", studentList);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/createStudent")
     public ModelAndView CreateStudent()
     {
@@ -74,7 +85,7 @@ public class StudentController {
         student.setId(id);
         studentService.updateStudent(student);
 
-        redirectAttributes.addFlashAttribute("message", "Update successful");
+        redirectAttributes.addFlashAttribute("message", "Student updated successfully");
 
         return new ModelAndView("redirect:/student/allStudents");
     }
@@ -92,8 +103,8 @@ public class StudentController {
     @RequestMapping(value = "/deleteConfirmed/{id}", method = RequestMethod.POST)
     public ModelAndView DeleteConfirmedStudent(@PathVariable(value = "id") long id, RedirectAttributes redirectAttributes) {
         studentService.deleteStudent(id);
-        redirectAttributes.addFlashAttribute("message", "Delete successful");
-        return new ModelAndView("redirect:/student/list");
+        redirectAttributes.addFlashAttribute("message", "Student deleted successfully");
+        return new ModelAndView("redirect:/student/allStudents");
     }
 
     @RequestMapping(value = "/viewStudent/{id}", method = RequestMethod.GET)
