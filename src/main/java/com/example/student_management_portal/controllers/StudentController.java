@@ -93,7 +93,7 @@ public class StudentController {
     public ModelAndView DeleteConfirmedStudent(@PathVariable(value = "id") long id, RedirectAttributes redirectAttributes) {
         studentService.deleteStudent(id);
         redirectAttributes.addFlashAttribute("message", "Delete successful");
-        return new ModelAndView("redirect:/student/list");
+        return new ModelAndView("redirect:/student/allStudents");
     }
 
     @RequestMapping(value = "/viewStudent/{id}", method = RequestMethod.GET)

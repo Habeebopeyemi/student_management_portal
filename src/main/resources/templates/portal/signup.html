@@ -21,6 +21,7 @@
         </div>
         <div>
           <input type="password" name="repeatPassword" minlength="5" class="form-control mb-4" placeholder="Repeat password">
+          <p th:if="${error}" class="my-3 text-danger p-2" style="font-weight:bold;" th:text="${message}">Invalid username or password</p>
         </div>
         <button class="text-white p-2 rounded-3 shadow-sm" style="width:100%; border:none; background-color:#022D63">Sign up</button>
       </form>
