@@ -11,13 +11,15 @@
         <div class="w-50 mx-auto">
             <img src="/images/flogo.png" alt="logo" class=""/>
         </div>
-        <form action="" class="w-75 mx-auto mb-5">
+        <form th:action="@{/login}" method="post" class="w-75 mx-auto mb-5">
             <p class="my-3" style="color:#022D63; font-weight:bold;">Login</p>
+            <p th:if="${error}" class="my-3 bg-danger p-2 rounded" style="color:white; font-weight:bold;" th:text="${message}">Invalid username or password</p>
+
             <div>
-                <input type="email"  class="form-control mb-4" placeholder="Your email">
+                <input type="email" name="email" class="form-control mb-4" placeholder="Your email">
             </div>
             <div>
-                <input type="password"  class="form-control mb-4" placeholder="Enter password">
+                <input type="password" name="password" class="form-control mb-4" placeholder="Enter password">
             </div>
 <!--            <div>-->
 <!--                <input type="password"  class="form-control mb-3" placeholder="Repeat password">-->
