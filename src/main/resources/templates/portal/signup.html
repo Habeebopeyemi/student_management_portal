@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>sign up</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body style="margin: 0; padding: 0; box-sizing: border-box;background-color:#EBEAEA;">
+  <main class="d-md-flex">
+    <section style="width: 70%;margin: 10rem auto;max-width: 600px;">
+      <div class="w-50 mx-auto">
+        <img src="/images/flogo.png" alt="logo" class=""/>
+      </div>
+      <form th:action="@{/register}" method="post" class="w-75 mx-auto mb-5">
+        <p class="my-3" style="color:#022D63; font-weight:bold;">Sign Up</p>
+        <div>
+          <input type="email" name="email" class="form-control mb-4" placeholder="Your email">
+        </div>
+        <div>
+          <input type="password" name="password" minlength="5" class="form-control mb-4" placeholder="Enter password">
+        </div>
+        <div>
+          <input type="password" name="repeatPassword" minlength="5" class="form-control mb-4" placeholder="Repeat password">
+          <p th:if="${error}" class="my-3 text-danger p-2" style="font-weight:bold;" th:text="${message}">Invalid username or password</p>
+        </div>
+        <button class="text-white p-2 rounded-3 shadow-sm" style="width:100%; border:none; background-color:#022D63">Sign up</button>
+      </form>
+      <p class="mx-auto" style="width: 300px">Already have an account account? <a th:href="@{/signin}" style="color:#022D63; font-weight:bold;text-decoration: none;">Login</a></p>
+    </section>
+    <div class="d-none d-md-block">
+      <div style="width:100%; position:relative;">
+        <img src="/images/fsignup.png" alt="logo" class="w-100" style="height: 100vh"/>
+        <p class="w-75 mx-auto p-3 text-white text-center rounded" style="max-width:400px;position: absolute; bottom: 23rem; left: 12.5%; background-color:rgba(35,36,46,0.7)">"The science of today is the technology of tomorrow"</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
